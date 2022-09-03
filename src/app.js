@@ -1,5 +1,6 @@
 'use strict'
 const express = require('express');
+const cors = require('cors');
 const swaggerUI = require('swagger-ui-express');
 const swaggerJSDoc = require('swagger-jsdoc');
 
@@ -16,6 +17,7 @@ const app = express();
 app.set("port", port);
 
 app.use(express.json());
+app.use(cors());
 
 connection()
 
