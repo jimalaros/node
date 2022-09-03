@@ -13,7 +13,7 @@ const swaggerSpecs = swaggerJSDoc(swaggerOptions);
 
 const app = express();
 
-app.set("port", 4400);
+app.set("port", 3000);
 
 app.use(express.json());
 app.use(cors());

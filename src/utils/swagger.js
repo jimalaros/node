@@ -5,11 +5,6 @@ const swaggerOptions = {
             title: "TECH ACADEMY - Node",
             version: "1.0.0",
         },
-        servers: [
-            {
-                url: "http://localhost:4400"
-            }
-        ],
         components: {
             securitySchemes: {
                 bearerAuth: {
