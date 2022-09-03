@@ -2,7 +2,7 @@
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 
-const jwtSecret = require('../config');
+const { jwtSecret } = require('../config');
 const Alumnos = require('../models/alumnos');
 
 const lista = async (req,res) => {
@@ -49,7 +49,9 @@ const inicioSesion = async (req, res) => {
             expiresIn: 60 * 60 * 24,
         });
         res.status(200).json({ auth: true, token });
-    } catch (error) { res.status(404).json(error); }  
+    } catch (error) { 
+        console.log(error)
+    }  
 };
 
 const edicion = async (req,res) => {
@@ -72,11 +74,11 @@ const eliminacion = async (req,res) => {
         if (!id) {
             res.status(400).json({ msg: "Debes proporcionar un id" });
         }
-        const alumnoABuscar = await character.findById(id);
+        const alumnoABuscar = await Alumnos.findById(id);
         if (!alumnoABuscar) {
             res.status(404).json({ msg: "El alumno no existe en nuestra base de datos" });
         } 
-        await character.findByIdAndDelete(id);
+        await Alumnos.findByIdAndDelete(id);
         res.status(200).json({msg: 'El alumno fue eliminado con exito' });
     } catch (err) { res.status(500).json(err); }
 };

@@ -2,7 +2,7 @@
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 
-const jwtSecret = require('../config');
+const { jwtSecret } = require('../config');
 const Maestros = require('../models/maestros');
 
 const lista = async (req,res) => {

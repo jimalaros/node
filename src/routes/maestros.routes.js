@@ -17,7 +17,7 @@ const router = express.Router()
  *          500:
  *              description: Bad Request
  */
-router.get("/", Maestros.lista)
+router.get("/", Verificar, Maestros.lista)
 
 /**
  * @swagger
@@ -25,6 +25,7 @@ router.get("/", Maestros.lista)
  *  post:
  *      summary: Para registrar un nuevo maestro
  *      tags: [Maestros]
+ *      security: []
  *      requestBody:
  *          required: true
  *          content:
@@ -69,6 +70,7 @@ router.post("/nuevo", Maestros.nuevo)
  *  post:
  *      summary: Para registrar un nuevo alumno
  *      tags: [Maestros]
+ *      security: []
  *      requestBody:
  *          required: true
  *          content:
@@ -81,7 +83,7 @@ router.post("/nuevo", Maestros.nuevo)
  *                    properties:
  *                      correo:
  *                          type: string
- *                          example: "Jimmy Arango"
+ *                          example: "j@gmail.com"
  *                      password:
  *                          type: string
  *                          example: "M"         
@@ -111,6 +113,12 @@ router.post("/nuevo", Maestros.nuevo)
  *            schema: 
  *              type: string
  *              example: "62bc788a0b718d90f48fd8ef"
+ *      requestBody:
+ *          required: true
+ *          content:
+ *              application/json:
+ *                  schema:
+ *                    type: object
  *      responses:
  *          400:
  *              description: Bad Request

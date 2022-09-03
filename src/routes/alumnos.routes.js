@@ -2,6 +2,7 @@
 const express = require('express');
 
 const Alumnos = require('../controllers/alumnos');
+const Verificar = require('../middlewares/token');
 
 const router = express.Router()
 
@@ -17,7 +18,7 @@ const router = express.Router()
  *          500:
  *              description: Bad Request
  */
-router.get("/", Alumnos.lista)
+router.get("/", Verificar, Alumnos.lista)
 
 /**
  * @swagger
@@ -25,6 +26,7 @@ router.get("/", Alumnos.lista)
  *  post:
  *      summary: Para registrar un nuevo alumno
  *      tags: [Alumnos]
+ *      security: []
  *      requestBody:
  *          required: true
  *          content:
@@ -73,6 +75,7 @@ router.post("/nuevo", Alumnos.nuevo)
  *  post:
  *      summary: Para registrar un nuevo alumno
  *      tags: [Alumnos]
+ *      security: []
  *      requestBody:
  *          required: true
  *          content:
@@ -85,7 +88,7 @@ router.post("/nuevo", Alumnos.nuevo)
  *                    properties:
  *                      correo:
  *                          type: string
- *                          example: "Jimmy Arango"
+ *                          example: "j@gmail.com"
  *                      password:
  *                          type: string
  *                          example: "M"         
@@ -115,6 +118,12 @@ router.post("/login", Alumnos.inicioSesion)
  *            schema: 
  *              type: string
  *              example: "62bc788a0b718d90f48fd8ef"
+ *      requestBody:
+ *          required: true
+ *          content:
+ *              application/json:
+ *                  schema:
+ *                    type: object
  *      responses:
  *          400:
  *              description: Bad Request
@@ -123,7 +132,7 @@ router.post("/login", Alumnos.inicioSesion)
  *          500:
  *              description: Internal Server Error
  */
-router.put("/:id", Alumnos.edicion)
+router.put("/:id", Verificar, Alumnos.edicion)
 
 /**
  * @swagger
@@ -149,6 +158,6 @@ router.put("/:id", Alumnos.edicion)
  *          500:
  *              description: Internal Server Error
  */
-router.delete("/:id", Alumnos.eliminacion)
+router.delete("/:id", Verificar, Alumnos.eliminacion)
 
 module.exports = router;
