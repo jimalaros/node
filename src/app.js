@@ -20,7 +20,7 @@ app.use(cors());
 
 connection()
 
-app.use('/', swaggerUI.serve, swaggerUI.setup(swaggerSpecs));
+app.use('/api', swaggerUI.serve, swaggerUI.setup(swaggerSpecs));
 
 app.use('/alumnos', alumnosRoutes);
 app.use('/maestros', maestrosRoutes);
