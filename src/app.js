@@ -21,7 +21,7 @@ app.use(cors());
 
 connection()
 
-app.use('/api', swaggerUI.serve, swaggerUI.setup(swaggerSpecs));
+app.use('/', swaggerUI.serve, swaggerUI.setup(swaggerSpecs));
 
 app.use('/alumnos', alumnosRoutes);
 app.use('/maestros', maestrosRoutes);
