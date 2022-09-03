@@ -2,7 +2,6 @@
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 
-const { jwtSecret } = require('../config');
 const Alumnos = require('../models/alumnos');
 
 const lista = async (req,res) => {
@@ -45,7 +44,7 @@ const inicioSesion = async (req, res) => {
         if (!alumno && !contraseñaABuscar) {
             return res.status(401).send({ auth: false, token: null });
         }
-        const token = jwt.sign({ id: alumno._id }, jwtSecret, {
+        const token = jwt.sign({ id: alumno._id }, "secret", {
             expiresIn: 60 * 60 * 24,
         });
         res.status(200).json({ auth: true, token });

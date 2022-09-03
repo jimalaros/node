@@ -1,8 +1,4 @@
 'use strict'
-const jwt = require('jsonwebtoken');
-const Alumnos = require('../models/alumnos');
-const Maestros = require('../models/maestros');
-const jwtSecret = require('../config');
 
 async function Verificar(req, res, next) 
 {

@@ -7,14 +7,13 @@ const swaggerJSDoc = require('swagger-jsdoc');
 const alumnosRoutes = require('./routes/alumnos.routes')
 const maestrosRoutes = require('./routes/maestros.routes');
 const swaggerOptions = require('./utils/swagger');
-const { port } = require('./config');
 const { connection } = require('./database');
 
 const swaggerSpecs = swaggerJSDoc(swaggerOptions);
 
 const app = express();
 
-app.set("port", port);
+app.set("port", 4400);
 
 app.use(express.json());
 app.use(cors());
