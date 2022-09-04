@@ -10,7 +10,7 @@ _Estas instrucciones te permitirán correr el proyecto y realizar las pruebas co
 npm install
 ```
 
-2. Una vez encendido el servicio de mongo, ejecutar el proyecto con el siguiente comando:
+2. Genere el .env por fuera de src, una vez generado ejecute el proyecto con el siguiente comando:
 
 ```
 npm start
