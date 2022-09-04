@@ -68,7 +68,7 @@ router.post("/nuevo", Maestros.nuevo)
  * @swagger
  * /maestros/login:
  *  post:
- *      summary: Para registrar un nuevo alumno
+ *      summary: Para que los maestros iniciar sesión
  *      tags: [Maestros]
  *      security: []
  *      requestBody:
@@ -86,7 +86,7 @@ router.post("/nuevo", Maestros.nuevo)
  *                          example: "j@gmail.com"
  *                      password:
  *                          type: string
- *                          example: "M"         
+ *                          example: "123456"         
  *      responses:
  *          400:
  *              description: Bad Request

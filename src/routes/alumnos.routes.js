@@ -73,7 +73,7 @@ router.post("/nuevo", Alumnos.nuevo)
  * @swagger
  * /alumnos/login:
  *  post:
- *      summary: Para registrar un nuevo alumno
+ *      summary: Para que los alumnos inicien sesión
  *      tags: [Alumnos]
  *      security: []
  *      requestBody:
